@@ -1,13 +1,11 @@
+let dict_amenities = {};
 $(document).ready(function () {
-        let dict_amenities = {};
-        $(document).on('change', "input[type='checkbox']", function () {
+    $(document).on('change', "input[type='checkbox']". function () {
         if (this.checked) {
-            dict_amenities[$(this).data('id')] = $(this).data('name');
+            dict_amenities[$(this).data('name')] = $(this).data('id');
+        } else {
+            delete dict_amenities[$(this).data('name')];
         }
-        else {
-            delete dict_amenities[$(this).data('id')];
-        }
-        $(".amenities > h4").text("hola")
-
-        });
+        $(".amenities > h4").text(Object.keys(dict_amenities).join(', '))
     });
+});
